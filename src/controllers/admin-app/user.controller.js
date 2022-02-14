@@ -14,8 +14,6 @@ class UserController {
         this.checkValidation(req);
 
         const { phone_number, password: pass } = req.body;
-        console.log(phone_number);
-        console.log(pass);
         const user = await UserModel.findOne({
             where:{ 
                 phone_number: phone_number,
