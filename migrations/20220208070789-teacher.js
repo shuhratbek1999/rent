@@ -5,7 +5,7 @@ module.exports = {
   async up (queryInterface, Sequelize) {
       return queryInterface.sequelize.transaction(function(t) {
         return Promise.all([
-          queryInterface.createTable("user", {
+          queryInterface.createTable("teacher", {
             id:{
               type: Sequelize.INTEGER,
               autoIncrement: true,
@@ -13,20 +13,30 @@ module.exports = {
               primaryKey: true
             },
             name:{
+              type: Sequelize.TEXT,
+              allowNull: false
+            },
+            image:{
+              type: Sequelize.STRING
+            },
+            lavozimi:{
+              type: Sequelize.STRING
+            },
+            toifasi:{
+              type: Sequelize.TEXT,
+              allowNull: false
+            },
+            phone:{
               type: Sequelize.STRING,
               allowNull: false
             },
-            phone_number:{
-              type: Sequelize.STRING
-            },
-            password:{
+            email:{
               type: Sequelize.STRING,
-              allowNull: false
             },
-            role:{
-              type: Sequelize.STRING
+            tajribasi:{
+              type: Sequelize.STRING,
             },
-            token:{
+            fan:{
               type: Sequelize.STRING
             }
           }), {transaction: t}
@@ -37,7 +47,7 @@ module.exports = {
   async down (queryInterface, Sequelize) {
     return queryInterface.sequelize.transaction(function(t) {
       return Promise.all([
-        queryInterface.dropTable("user"),
+        queryInterface.dropTable("teacher"),
         {transaction: t}
       ])
     })

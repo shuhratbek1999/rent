@@ -5,7 +5,7 @@ module.exports = {
   async up (queryInterface, Sequelize) {
       return queryInterface.sequelize.transaction(function(t) {
         return Promise.all([
-          queryInterface.createTable("user", {
+          queryInterface.createTable("comment", {
             id:{
               type: Sequelize.INTEGER,
               autoIncrement: true,
@@ -13,21 +13,11 @@ module.exports = {
               primaryKey: true
             },
             name:{
-              type: Sequelize.STRING,
+              type: Sequelize.TEXT,
               allowNull: false
             },
-            phone_number:{
-              type: Sequelize.STRING
-            },
-            password:{
-              type: Sequelize.STRING,
-              allowNull: false
-            },
-            role:{
-              type: Sequelize.STRING
-            },
-            token:{
-              type: Sequelize.STRING
+            news_id:{
+              type: Sequelize.INTEGER
             }
           }), {transaction: t}
         ])
@@ -37,7 +27,7 @@ module.exports = {
   async down (queryInterface, Sequelize) {
     return queryInterface.sequelize.transaction(function(t) {
       return Promise.all([
-        queryInterface.dropTable("user"),
+        queryInterface.dropTable("comment"),
         {transaction: t}
       ])
     })
