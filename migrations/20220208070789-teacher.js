@@ -3,8 +3,6 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up (queryInterface, Sequelize) {
-      return queryInterface.sequelize.transaction(function(t) {
-        return Promise.all([
           queryInterface.createTable("teacher", {
             id:{
               type: Sequelize.INTEGER,
@@ -39,18 +37,11 @@ module.exports = {
             fan:{
               type: Sequelize.STRING
             }
-          }), {transaction: t}
-        ])
-      })
+          })
       },
 
   async down (queryInterface, Sequelize) {
-    return queryInterface.sequelize.transaction(function(t) {
-      return Promise.all([
-        queryInterface.dropTable("teacher"),
-        {transaction: t}
-      ])
-    })
+        queryInterface.dropTable("teacher")
     /**
      * Add reverting commands here.
      *

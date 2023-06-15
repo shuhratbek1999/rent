@@ -3,8 +3,6 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up (queryInterface, Sequelize) {
-      return queryInterface.sequelize.transaction(function(t) {
-        return Promise.all([
           queryInterface.createTable("user", {
             id:{
               type: Sequelize.INTEGER,
@@ -29,9 +27,7 @@ module.exports = {
             token:{
               type: Sequelize.STRING
             }
-          }), {transaction: t}
-        ])
-      })
+          })
       },
 
   async down (queryInterface, Sequelize) {
