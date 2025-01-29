@@ -9,5 +9,8 @@ exports.validateLogin = [
         .exists()
         .withMessage('Password is required')
         .notEmpty()
-        .withMessage('Password must be filled')
+        .withMessage('Password must be filled'),
+    body('email')
+        .exists()
+        .withMessage('email is required')
 ];

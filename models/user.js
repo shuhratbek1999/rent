@@ -11,9 +11,10 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING(255),
       allowNull: false
     },
-    phone_number: {
+    email: {
       type: DataTypes.STRING(255),
-      allowNull: true
+      allowNull: false,
+      unique: "email"
     },
     password: {
       type: DataTypes.STRING(255),
@@ -23,8 +24,9 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING(255),
       allowNull: true
     },
-    token:{
-      type: DataTypes.STRING
+    token: {
+      type: DataTypes.STRING(255),
+      allowNull: true
     }
   }, {
     sequelize,
@@ -37,6 +39,14 @@ module.exports = function(sequelize, DataTypes) {
         using: "BTREE",
         fields: [
           { name: "id" },
+        ]
+      },
+      {
+        name: "email",
+        unique: true,
+        using: "BTREE",
+        fields: [
+          { name: "email" },
         ]
       },
     ]

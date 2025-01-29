@@ -14,8 +14,10 @@ module.exports = {
               type: Sequelize.STRING,
               allowNull: false
             },
-            phone_number:{
-              type: Sequelize.STRING
+            email:{
+              type: Sequelize.STRING,
+              unique: true,
+              allowNull: false
             },
             password:{
               type: Sequelize.STRING,
@@ -31,12 +33,7 @@ module.exports = {
       },
 
   async down (queryInterface, Sequelize) {
-    return queryInterface.sequelize.transaction(function(t) {
-      return Promise.all([
-        queryInterface.dropTable("user"),
-        {transaction: t}
-      ])
-    })
+        queryInterface.dropTable("user")
     /**
      * Add reverting commands here.
      *
