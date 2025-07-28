@@ -1,15 +1,15 @@
-'use strict';
+"use strict";
 
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
-	async up(queryInterface, Sequelize) {
-		queryInterface.addColumn('Elon', 'subcategory_id', {
-			type: Sequelize.INTEGER,
-			allowNull: false,
-		});
-	},
+  async up(queryInterface, Sequelize) {
+    queryInterface.addColumn("elon", "subcategory_id", {
+      type: Sequelize.INTEGER,
+      allowNull: false,
+    });
+  },
 
-	async down(queryInterface, Sequelize) {
-		queryInterface.removeColumn('Elon', 'subcategory_id');
-	},
+  async down(queryInterface, Sequelize) {
+    queryInterface.removeColumn("elon", "subcategory_id");
+  },
 };
