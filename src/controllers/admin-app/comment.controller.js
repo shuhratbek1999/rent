@@ -55,7 +55,7 @@ class CommentController {
 				data: modell,
 			});
 		} catch (err) {
-			console.log(err);
+			next(err);
 		}
 	};
 	update = async (req, res, next) => {

@@ -9,6 +9,9 @@ const nodemailer = require('nodemailer');
  *                              User Controller
  ******************************************************************************/
 class UserController {
+	// chatElon = async(req,res,next) => {
+	// 	const model = await User.findOne()
+	// }
 	userLogin = async (req, res, next) => {
 		try {
 			this.checkValidation(req);

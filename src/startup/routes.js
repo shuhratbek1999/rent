@@ -7,6 +7,7 @@ const categoryRouter = require('../routes/admin-app/category.route');
 const SubcategoryRouter = require('../routes/admin-app/Subcategory.route');
 const fieldsRouter = require('../routes/admin-app/fields.route');
 const CommentRouter = require('../routes/admin-app/comment.route');
+const messageRouter = require('../routes/admin-app/message.route');
 const HttpException = require('../utils/HttpException.utils');
 
 module.exports = function (app) {
@@ -23,6 +24,7 @@ module.exports = function (app) {
 	app.use(`/api/v1/admin-app/elon`, elonRouter);
 	app.use(`/api/v1/admin-app/category`, categoryRouter);
 	app.use(`/api/v1/admin-app/Subcategory`, SubcategoryRouter);
+	app.use(`/api/v1/admin-app/message`, messageRouter);
 
 	// app.use(`/api/v1/uploads`, express.static('uploads'));
 	app.use(`/api/v1/admin-app/img`, express.static('upload'));

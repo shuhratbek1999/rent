@@ -57,4 +57,8 @@ router.get(
 	'/sub/:name',
 	awaitHandlerFactory(SubcategoryController.SubCategoryNameList)
 );
+router.get(
+	'/search/:name',
+	awaitHandlerFactory(SubcategoryController.searchName)
+);
 module.exports = router;
